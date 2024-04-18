@@ -25,7 +25,7 @@ server.get('/videos', () => {
     return videos//por padrao o status 200 já significa que deu tudo certo e não inclui-lo. 
 })
 
-server.put('/videos/:id', (request) => {
+server.put('/videos/:id', (request, reply) => {
     const videoID = request.params.id;
     const { title, description, duration } = request.body;
 
@@ -38,8 +38,12 @@ server.put('/videos/:id', (request) => {
     return reply.status(204).send();//204 signfica uma resposta com sucesso porem sem conteudo
 })
 
-server.delete('/video/:id', () => {
+server.delete('/videos/:id', (request, reply) => {
+    const videoId = request.params.id;
 
+    database.delete(videoId)
+
+    return reply.status(204).send();
 })
 
 
