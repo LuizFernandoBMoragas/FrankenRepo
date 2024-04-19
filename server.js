@@ -1,6 +1,5 @@
 import { fastify } from "fastify";
 import { DatabaseMemory } from "./database-memory.js";
-import { title } from "node:process";
 
 const server = fastify();
 
@@ -18,8 +17,10 @@ server.post('/videos', (request, reply) => {
     return reply.status(201).send();
 })
 
-server.get('/videos', () => {
-    const videos = database.list();
+server.get('/videos', (request) => {
+    const search = request.query.search;
+
+    const videos = database.list(search);
 
     console.log(videos)
     return videos//por padrao o status 200 já significa que deu tudo certo e não inclui-lo. 
