@@ -10,19 +10,19 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/videos?search=node
+GET http://localhost:3333/videos
 
 ###
 
-PUT http://localhost:3333/videos/7cfc08e3-c4a3-48f4-8e62-a18039a7c679
+PUT http://localhost:3333/videos/e56ef4ec-45eb-4f79-ad91-9c62c0e7ea11
 Content-Type: application/json
 
 {
-    "title": "Video 4000",
-    "description": "Mudou a porra toda",
+    "title": "Video 2000",
+    "description": "Ma porra toda",
     "duration": 69
 }
 
 ###
 
-DELETE http://localhost:3333/videos/7cfc08e3-c4a3-48f4-8e62-a18039a7c679
+DELETE http://localhost:3333/videos/e56ef4ec-45eb-4f79-ad91-9c62c0e7ea11
